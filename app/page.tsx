@@ -1,7 +1,6 @@
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import HeroContent from "./components/HeroContent";
-import AddToDb from "@/components/AddToDb";
 import FormComponent from "./components/FormComponent";
 export default function Home() {
   return (
