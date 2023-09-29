@@ -17,7 +17,11 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = getApps().length > 0 ? getApp() : initializeApp(firebaseConfig);
+//init services
 const auth = getAuth(app);
 const db = getFirestore(app);
+//collection ref
+
+//get collection data
 
 export { auth, db };
