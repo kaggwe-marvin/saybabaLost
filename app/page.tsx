@@ -2,6 +2,7 @@ import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import HeroContent from "./components/HeroContent";
 import FormComponent from "./components/FormComponent";
+import { Suspense } from "react";
 export default function Home() {
   return (
     <>
@@ -17,7 +18,12 @@ export default function Home() {
           <div className="hero-content flex-col lg:flex-row-reverse">
             <HeroContent />
             <div className="divider divider-horizontal" />
-            <FormComponent />
+            <Suspense
+              fallback={
+                <span className="loading loading-bars loading-md"></span>
+              }>
+              <FormComponent />
+            </Suspense>
           </div>
         </div>
       </main>

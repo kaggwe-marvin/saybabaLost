@@ -3,7 +3,7 @@ import { db } from "@/firebase/firebase";
 import { ReportItem } from "@/typings";
 import { addDoc, collection } from "firebase/firestore";
 // FormComponent.tsx
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 const FormComponent: React.FC = () => {
   // State to store form data
@@ -16,6 +16,9 @@ const FormComponent: React.FC = () => {
     region: "mubs",
     id: "",
   });
+  // State for loading and error handling
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   // Handle form input changes
   const handleInputChange = (
@@ -32,6 +35,8 @@ const FormComponent: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
+      // Set loading state to true to show a loading indicator
+      setLoading(true);
       const dataRef = collection(db, "lost"); // Replace with your Firestore collection name
       await addDoc(dataRef, formData); // Add a new document with the form data
 
@@ -45,10 +50,17 @@ const FormComponent: React.FC = () => {
         region: "mubs",
         id: "",
       });
+      // Reset the error state and set loading to false after successful submission
+      setError(null);
+      setLoading(false);
       console.log("Data added successfully!");
       alert("Data added successfully!");
     } catch (error) {
-      console.error("Error adding data:", error);
+      // Handle errors and set the error state
+      setError("Error adding data: " + error);
+
+      // Set loading to false in case of an error
+      setLoading(false);
     }
   };
 
@@ -160,10 +172,18 @@ const FormComponent: React.FC = () => {
         <div className="mt-4">
           <button
             type="submit"
-            className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
-            Submit
+            className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+            disabled={loading} // Disable the button during loading
+          >
+            {loading ? (
+              <span className="loading loading-bars loading-lg"></span>
+            ) : (
+              "Submit"
+            )}
           </button>
         </div>
+        {/* Display error message if there's an error */}
+        {error && <p className="text-red-500">{error}</p>}
       </form>
     </div>
   );
