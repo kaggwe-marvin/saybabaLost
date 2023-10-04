@@ -1,5 +1,6 @@
-import CardData from "@/components/CardData";
+
 import Link from "next/link";
+import CardData from "./CardData";
 
 const HeroContent = () => {
   return (
@@ -12,7 +13,7 @@ const HeroContent = () => {
           <ul className="menu bg-base-200 w-56 rounded-box">
             <li>
               <Link
-                href="#"
+                href="/items/foundItems"
                 className=" text-xl font-small link link-secondary">
                 See more ...
               </Link>

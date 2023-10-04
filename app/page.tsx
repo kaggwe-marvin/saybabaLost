@@ -1,12 +1,9 @@
-import Footer from "@/components/Footer";
-import Header from "@/components/Header";
-import HeroContent from "./components/HeroContent";
-import FormComponent from "./components/FormComponent";
+import HeroContent from "@/components/HeroContent";
+import FormComponent from "../components/FormComponent";
 import { Suspense } from "react";
 export default function Home() {
   return (
     <>
-      <Header />
       <main className="container mx-auto p-4">
         {/* Add your homepage content here */}
 
@@ -27,7 +24,6 @@ export default function Home() {
           </div>
         </div>
       </main>
-      <Footer />
     </>
   );
 }

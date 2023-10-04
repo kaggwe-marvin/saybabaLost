@@ -1,10 +1,3 @@
-export interface Found {
-  name: string;
-  id: string;
-  collection: string;
-  category: string;
-  region: string;
-}
 export interface ReportItem {
   firstName: string;
   lastName: string;
@@ -13,4 +6,7 @@ export interface ReportItem {
   collectionPoint: string;
   region: string;
   id: string;
+}
+export interface basicQueryProps {
+  limitCount: number;
 }
