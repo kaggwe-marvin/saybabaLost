@@ -1,6 +1,7 @@
 "use client";
 import React, { ReactNode, useState } from "react";
 
+("use server");
 interface Props {
   tabIds: string[];
   renderTitle: (id: string) => ReactNode;
