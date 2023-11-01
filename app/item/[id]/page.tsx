@@ -12,22 +12,15 @@ const page = async ({ params }: IParamsItemDetails) => {
   const { id } = params;
   const item = await getSingleDocument(id);
   return (
-    <div>
+    <>
       <h1>Item Details</h1>
       {item ? (
         <div>
-          <h2>{item.category}</h2>
-          <p>
-            {item.firstName}
-            {item.lastName}
-          </p>
           <div className="card w-96 bg-neutral text-neutral-content">
             <div className="card-body items-center text-center">
               <h1 className="card-title">Found {item.category} Card</h1>
-              <p>
-                {item.firstName}
-                {item.lastName}
-              </p>
+              <p>First Name: {item.firstName}</p>
+              <p>Last Name: {item.lastName}</p>
               <div className="card-actions justify-end">
                 <button className="btn btn-primary">Claim</button>
               </div>
@@ -37,7 +30,7 @@ const page = async ({ params }: IParamsItemDetails) => {
       ) : (
         <p>Item not found.</p>
       )}
-    </div>
+    </>
   );
 };
 
