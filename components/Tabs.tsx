@@ -1,4 +1,4 @@
-"use client";
+"use server";
 import { TabProps } from "@/typings";
 import React, { useState } from "react";
 
