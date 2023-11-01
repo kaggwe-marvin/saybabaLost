@@ -33,7 +33,14 @@ const page = async ({ params }: IParamsItemDetails) => {
             <li>Visit our offices in person.</li>
             <li>Show the items details and your identification.</li>
             <li>Click the Claim button above to initiate the process.</li>
-          </ol>
+          </ol>{" "}
+          <div className="mt-2 ml-6">
+            <p className="text-gray-600">National ID: 10,000 UGX</p>
+            <p className="text-gray-600">School Document: 5,000 UGX</p>
+          </div>
+          <p className="text-gray-700 mt-2">
+            Note: For claiming a national ID, please carry a police letter.
+          </p>
         </>
       ) : (
         <p>Item not found.</p>
