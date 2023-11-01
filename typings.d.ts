@@ -19,11 +19,3 @@ export interface whereQueryProps {
 export interface searchQueryProps {
   searchQuery: string;
 }
-
-("use server");
-import { ReactNode } from "react";
-export interface TabProps {
-  tabIds: string[];
-  renderTitle: (id: string) => ReactNode;
-  renderContent: (id: string) => ReactNode;
-}

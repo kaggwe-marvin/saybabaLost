@@ -1,7 +1,6 @@
 import React from "react";
 import { whereQuery } from "../(queries)/queries";
 import ItemCard from "@/components/ItemCard";
-import Tabs from "@/components/Tabs";
 export default async function page() {
   const national = await whereQuery("category", "national");
   return (
@@ -10,11 +9,7 @@ export default async function page() {
       <h2 className="text-2xl text-gray-700 mb-4">
         Find lost items or report found items.
       </h2>
-      <Tabs
-        tabIds={["National", "School", "Other"]}
-        renderTitle={(id) => `Tab ${id.toUpperCase()}`}
-        renderContent={(id) => `Tab content ${id.toUpperCase()}`}
-      />
+
       <ItemCard />
     </main>
   );
