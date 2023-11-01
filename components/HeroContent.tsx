@@ -1,6 +1,6 @@
-
 import Link from "next/link";
 import CardData from "./CardData";
+import { Suspense } from "react";
 
 const HeroContent = () => {
   return (
@@ -9,11 +9,17 @@ const HeroContent = () => {
         <input type="radio" name="my-accordion-2" />
         <div className="collapse-title text-xl font-medium">Found Items</div>
         <div className="collapse-content">
-          <CardData />
+          <Suspense
+            fallback={
+              <span className="loading loading-bars loading-md"></span>
+            }>
+            <CardData />
+          </Suspense>
+
           <ul className="menu bg-base-200 w-56 rounded-box">
             <li>
               <Link
-                href="/items/foundItems"
+                href="/items"
                 className=" text-xl font-small link link-secondary">
                 See more ...
               </Link>

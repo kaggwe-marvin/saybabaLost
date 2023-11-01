@@ -1,13 +1,16 @@
 // queries.ts
 import { db } from "@/firebase/firebase";
-import { basicQueryProps } from "@/typings";
+import { basicQueryProps, ReportItem } from "@/typings";
 import {
   collection,
   query,
   limit,
+  where,
   getDocs,
   doc,
   getDoc,
+  orderBy,
+  startAt,
 } from "firebase/firestore";
 
 // Basic Query: Retrieve all documents in a collection
@@ -22,15 +25,16 @@ export const basicQuery = async ({ limitCount }: basicQueryProps) => {
     throw error;
   }
 };
-// get all documents back
-export const getAll = async () => {
+
+// Where Query: Filter documents based on a specific field and value
+export const whereQuery = async (field: string, value: any) => {
   try {
     const dataRef = collection(db, "lost");
-    const q = query(dataRef);
+    const q = query(dataRef, where(field, "==", value));
     const querySnapshot = await getDocs(q);
     return querySnapshot.docs;
   } catch (error) {
-    console.error("Error fetching all data:", error);
+    console.error("Error fetching querired data", error);
     throw error;
   }
 };
@@ -53,3 +57,46 @@ export const getSingleDocument = async (documentId: string) => {
     throw error;
   }
 };
+
+export async function executeSearchQuery(
+  searchQuery: string
+): Promise<ReportItem[]> {
+  const dataRef = collection(db, "lost");
+  const q = query(dataRef, where("firstName", "==", searchQuery));
+
+  const querySnapshot = await getDocs(q);
+
+  // Use map to create the results array with IDs
+  const results: ReportItem[] = querySnapshot.docs.map(
+    (doc) =>
+      ({
+        id: doc.id,
+        ...doc.data(),
+      } as ReportItem)
+  );
+
+  return results;
+}
+
+export async function executeSearchQuery2(
+  searchQuery: string
+): Promise<ReportItem[]> {
+  const dataRef = collection(db, "lost");
+  const lowercaseSearchQuery = searchQuery.toLowerCase(); // Convert searchQuery to lowercase
+
+  // Use orderBy to sort by lowercase "firstName"
+  const q = query(
+    dataRef,
+    orderBy("firstNameLowercase"),
+    startAt(lowercaseSearchQuery)
+  );
+
+  const querySnapshot = await getDocs(q);
+  const results: ReportItem[] = [];
+
+  querySnapshot.forEach((doc) => {
+    results.push({ id: doc.id, ...doc.data() } as ReportItem);
+  });
+
+  return results;
+}

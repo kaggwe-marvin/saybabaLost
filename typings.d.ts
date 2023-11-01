@@ -10,3 +10,12 @@ export interface ReportItem {
 export interface basicQueryProps {
   limitCount: number;
 }
+
+export interface whereQueryProps {
+  field: string;
+  value: string;
+}
+
+export interface searchQueryProps {
+  searchQuery: string;
+}

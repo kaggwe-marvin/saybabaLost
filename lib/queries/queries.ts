@@ -8,7 +8,6 @@ import {
   getDocs,
   startAt,
   endAt,
-  GeoPoint,
   updateDoc,
   arrayUnion,
   doc,
