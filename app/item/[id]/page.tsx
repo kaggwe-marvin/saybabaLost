@@ -21,7 +21,18 @@ const page = async ({ params }: IParamsItemDetails) => {
             {item.firstName}
             {item.lastName}
           </p>
-          {/* Render other fields as needed */}
+          <div className="card w-96 bg-neutral text-neutral-content">
+            <div className="card-body items-center text-center">
+              <h1 className="card-title">Found {item.category} Card</h1>
+              <p>
+                {item.firstName}
+                {item.lastName}
+              </p>
+              <div className="card-actions justify-end">
+                <button className="btn btn-primary">Claim</button>
+              </div>
+            </div>
+          </div>
         </div>
       ) : (
         <p>Item not found.</p>
