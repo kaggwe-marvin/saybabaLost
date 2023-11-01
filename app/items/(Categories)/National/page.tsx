@@ -1,7 +1,7 @@
 import ItemCard from "@/components/ItemCard";
 import React from "react";
 
-function allfoundItems() {
+function page() {
   return (
     <>
       <main className="bg-slate-400">
@@ -13,4 +13,4 @@ function allfoundItems() {
   );
 }
 
-export default allfoundItems;
+export default page;
