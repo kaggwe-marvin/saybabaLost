@@ -1,6 +1,11 @@
 "use server";
-import { TabProps } from "@/typings";
-import React, { useState } from "react";
+import React, { ReactNode, useState } from "react";
+
+interface TabProps {
+  tabIds: string[];
+  renderTitle: (id: string) => ReactNode;
+  renderContent: (id: string) => ReactNode;
+}
 
 export default function Tabs({ tabIds, renderTitle, renderContent }: TabProps) {
   const [selectedId, setSelectedId] = useState(tabIds[0]);
