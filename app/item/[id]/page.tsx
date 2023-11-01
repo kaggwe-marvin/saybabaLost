@@ -13,9 +13,8 @@ const page = async ({ params }: IParamsItemDetails) => {
   const item = await getSingleDocument(id);
   return (
     <>
-      <h1>Item Details</h1>
       {item ? (
-        <div>
+        <>
           <div className="card w-96 bg-neutral text-neutral-content">
             <div className="card-body items-center text-center">
               <h1 className="card-title">Found {item.category} Card</h1>
@@ -25,8 +24,17 @@ const page = async ({ params }: IParamsItemDetails) => {
                 <button className="btn btn-primary">Claim</button>
               </div>
             </div>
-          </div>
-        </div>
+          </div>{" "}
+          <h2 className="text-xl font-semibold">Claim This Item</h2>
+          <p className="text-gray-600 mt-2">
+            To claim this reported item, please follow these steps:
+          </p>
+          <ol className="list-decimal list-inside text-gray-700 mt-2 ml-4">
+            <li>Visit our offices in person.</li>
+            <li>Show the items details and your identification.</li>
+            <li>Click the Claim button above to initiate the process.</li>
+          </ol>
+        </>
       ) : (
         <p>Item not found.</p>
       )}
