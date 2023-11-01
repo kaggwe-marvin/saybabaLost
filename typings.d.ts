@@ -20,6 +20,7 @@ export interface searchQueryProps {
   searchQuery: string;
 }
 
+("use server");
 import { ReactNode } from "react";
 export interface TabProps {
   tabIds: string[];
