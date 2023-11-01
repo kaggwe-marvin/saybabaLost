@@ -7,7 +7,12 @@ export default function Home() {
       <main className="container mx-auto p-4">
         {/* Add your homepage content here */}
 
-        <h1 className="text-5xl font-bold mb-2">U+2642;BaBaFinder!!</h1>
+        <h1 className="text-5xl font-bold mb-2">
+          <span role="img" aria-label="Waving hand">
+            &#x1F44B;
+          </span>
+          BaBaFinder!!
+        </h1>
         <h2 className="text-2xl text-gray-700 mb-4">
           Find lost items or report found items.
         </h2>
