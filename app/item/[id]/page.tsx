@@ -15,7 +15,9 @@ const page = async ({ params }: IParamsItemDetails) => {
     <>
       {item ? (
         <>
-          <div className="card w-96 bg-neutral text-neutral-content">
+          <div className="card w-96 bg-neutral text-neutral-content m-4">
+            {" "}
+            {/* Added margin */}
             <div className="card-body items-center text-center">
               <h1 className="card-title">Found {item.category} Card</h1>
               <p>First Name: {item.firstName}</p>
@@ -43,7 +45,8 @@ const page = async ({ params }: IParamsItemDetails) => {
           </p>
         </>
       ) : (
-        <p>Item not found.</p>
+        // Handle the case when 'item' is not available
+        <p>No item found.</p>
       )}
     </>
   );
