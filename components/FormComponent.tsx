@@ -65,9 +65,10 @@ const FormComponent: React.FC = () => {
   };
 
   return (
-    <div>
-      <h2>Data Collection Form</h2>
-      <form onSubmit={handleSubmit}>
+    <>
+      <form onSubmit={handleSubmit} className="form-control">
+        <h1>Data Collection Form</h1>
+
         {/* First Name */}
         <div className="mb-4">
           <label htmlFor="firstName" className="block mb-2">
@@ -79,7 +80,7 @@ const FormComponent: React.FC = () => {
             name="firstName"
             value={formData.firstName}
             onChange={handleInputChange}
-            className="w-full border p-2"
+            className="input-ghost input-sm"
             required
           />
         </div>
@@ -185,7 +186,7 @@ const FormComponent: React.FC = () => {
         {/* Display error message if there's an error */}
         {error && <p className="text-red-500">{error}</p>}
       </form>
-    </div>
+    </>
   );
 };
 

@@ -11,7 +11,7 @@ export default function Home() {
           <span role="img" aria-label="Waving hand">
             &#x1F44B;
           </span>
-          BaBaFinder!!
+          foundug!!
         </h1>
         <h2 className="text-2xl text-gray-700 mb-4">
           Find lost items or report found items.

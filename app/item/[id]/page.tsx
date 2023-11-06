@@ -18,7 +18,7 @@ const page = async ({ params }: IParamsItemDetails) => {
           <div className="card w-96 bg-neutral text-neutral-content m-4">
             {" "}
             {/* Added margin */}
-            <div className="card-body items-center text-center">
+            <div className="card-body items-center text-center bg-base-400">
               <h1 className="card-title">Found {item.category} Card</h1>
               <p>First Name: {item.firstName}</p>
               <p>Last Name: {item.lastName}</p>
