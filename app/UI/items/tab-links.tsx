@@ -9,17 +9,17 @@ import Link from "next/link";
 const links = [
   {
     name: "National",
-    href: "/(categories)/National",
+    href: "/items/National",
     icon: BuildingOffice2Icon,
   },
   {
     name: "School",
-    href: "/(categories)/School",
+    href: "/items/School",
     icon: AcademicCapIcon,
   },
   {
     name: "Other",
-    href: "/(categories)/Not Categorized",
+    href: "/items/NotCategorized",
     icon: EllipsisHorizontalCircleIcon,
   },
 ];
