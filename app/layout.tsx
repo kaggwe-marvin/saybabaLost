@@ -1,14 +1,18 @@
 import Header from "@/components/Header";
-import "./globals.css";
-import type { Metadata } from "next";
-
 import Footer from "@/components/Footer";
+import "./globals.css";
+
+import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "SayBaBa",
-  description: "Lost and Found Website",
+  title: {
+    template: "%s | foundug",
+    default: "foundug",
+  },
+  description:
+    "The official Centralized Lost and Found Application around campus.",
+  metadataBase: new URL("https://foundug.com"),
 };
-
 export default function RootLayout({
   children,
 }: {

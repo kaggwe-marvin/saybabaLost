@@ -1,6 +1,10 @@
 import React from "react";
 import { whereQuery } from "../(queries)/queries";
 import ItemCard from "@/components/ItemCard";
+import { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "found items",
+};
 export default async function page() {
   const national = await whereQuery("category", "national");
   return (
